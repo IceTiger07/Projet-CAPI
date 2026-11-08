@@ -21,4 +21,4 @@ def charger_fichier_json():
 liste_joueurs = []
 configuration(liste_joueurs)
 charger_fichier_json()
- 
+print(liste_joueurs)
