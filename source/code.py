@@ -21,6 +21,10 @@ def charger_fichier_json():
         if ligne["id"] == "F1":
             print(ligne["titre"])
     
+# retourne un entier : -1 si on revote, x si on a une valeur retenue où x est la valeur retenue
+def validation_vote(liste_vote,regle,tour):
+    raise Exception("non implémenté") 
+    
 
 liste_joueurs = []
 configuration(liste_joueurs)
