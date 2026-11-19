@@ -1,5 +1,4 @@
 import json
-from testunitaire import *
 class Joueur:
 
     def __init__(self, pseudo):
