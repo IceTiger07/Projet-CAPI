@@ -73,4 +73,3 @@ def test():
     test_CA_03_1_moyenne_tour1()
     test_CA_03_1_moyenne_unanimité_()
 
-test()

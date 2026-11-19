@@ -1,5 +1,5 @@
 import json
-
+from testunitaire import *
 class Joueur:
 
     def __init__(self, pseudo):
@@ -25,8 +25,8 @@ def charger_fichier_json():
 def validation_vote(liste_vote,regle,tour):
     raise Exception("non implémenté") 
     
-
-liste_joueurs = []
-configuration(liste_joueurs)
-charger_fichier_json()
-print(liste_joueurs[0].getPseudo())
+if __name__ == "__main__":
+    liste_joueurs = []
+    configuration(liste_joueurs)
+    charger_fichier_json()
+    print(liste_joueurs[0].getPseudo())
