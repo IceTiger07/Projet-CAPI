@@ -1,11 +1,16 @@
 import json
 class Joueur:
 
-    def __init__(self, pseudo):
+    def __init__(self, pseudo, vote):
         self.pseudo = pseudo
+        self.vote = vote
 
     def getPseudo(self):
         return self.pseudo
+
+    def getVote(self):
+        return self.vote
+
 
 def configuration(liste_joueurs):
     nombre_joueurs = int(input("Saisir le nombre de joueur : "))
