@@ -86,7 +86,10 @@ def calcul_moyenne(liste_vote):
         if nb_vote%2 == 1:
             index = int((nb_vote/2)-0.5)
             return liste_vote[index]
-    
+        if nb_vote%2 == 0:
+            index = int(((nb_vote-1)/2 + (nb_vote+1)/2)/ 2)
+            return liste_vote[index]
+
 if __name__ == "__main__":
     liste_joueurs = []
     configuration(liste_joueurs)
