@@ -104,12 +104,13 @@ def moteur_de_jeu(liste_joueurs,regle):
         elif i == 2:
             break
         reinit_vote(liste_joueurs,liste_vote)
+        regle = "moyenne"
     return resultat
 
-"""
 if __name__ == "__main__":
     liste_joueurs = []
     configuration(liste_joueurs)
     charger_fichier_json()
     print(liste_joueurs[0].getPseudo())
-"""
+    regle = str(input("Saississez la règle (strict ou moyenne): "))
+    moteur_de_jeu(liste_joueurs,regle)
