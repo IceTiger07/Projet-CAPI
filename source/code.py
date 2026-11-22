@@ -1,4 +1,7 @@
 import json
+
+liste_cartes = ["0", "1/2", "1", "2", "3", "5", "8", "13", "20", "40", "100", "?", "café"]
+
 class Joueur:
 
     def __init__(self, pseudo, vote):
@@ -24,6 +27,9 @@ def charger_fichier_json():
     for ligne in contenu["fonctionnalites"]:
         if ligne["id"] == "F1":
             print(ligne["titre"])
+
+def vote_cache(liste_joueurs):
+    
     
 # retourne un entier : -1 si on revote, x si on a une valeur retenue où x est la valeur retenue
 def validation_vote(liste_vote,regle,tour):
