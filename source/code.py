@@ -40,9 +40,10 @@ def vote_cache(liste_joueurs):
         saisirVote = str(input(messageSaisi))
         joueur.setVote(saisirVote)
 
-def reinit_vote(liste_joueurs):
+def reinit_vote(liste_joueurs,liste_vote):
     for joueur in liste_joueurs:
         joueur.setVote(" ")
+    liste_vote.clear()
 
 def recup_vote(liste_joueurs,liste_vote):
     for resultat in liste_joueurs:
@@ -85,13 +86,30 @@ def calcul_moyenne(liste_vote):
         liste_vote.sort()
         if nb_vote%2 == 1:
             index = int((nb_vote/2)-0.5)
-            return liste_vote[index]
+            return int(liste_vote[index])
         if nb_vote%2 == 0:
             index = int(((nb_vote-1)/2 + (nb_vote+1)/2)/ 2)
-            return liste_vote[index]
+            return int(liste_vote[index])
 
+def moteur_de_jeu(liste_joueurs,regle):
+    resultat = 0
+    liste_vote = []
+    for i in range(1,3):
+        vote_cache(liste_joueurs)
+        recup_vote(liste_joueurs,liste_vote)
+        revelation_vote(liste_vote)
+        resultat = validation_vote(liste_vote,regle,i)
+        if resultat != -1 and i == 1:
+            return resultat
+        elif i == 2:
+            break
+        reinit_vote(liste_joueurs,liste_vote)
+    return resultat
+
+"""
 if __name__ == "__main__":
     liste_joueurs = []
     configuration(liste_joueurs)
     charger_fichier_json()
     print(liste_joueurs[0].getPseudo())
+"""
