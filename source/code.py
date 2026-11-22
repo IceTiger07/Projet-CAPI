@@ -14,12 +14,18 @@ class Joueur:
     def getVote(self):
         return self.vote
 
+    def setVote(self, newVote):
+        if newVote not in liste_cartes:
+            raise Exception("Vote invalide !")
+        else :
+            self.vote = newVote
+
 
 def configuration(liste_joueurs):
     nombre_joueurs = int(input("Saisir le nombre de joueur : "))
     for i in range(nombre_joueurs):
         saisirPseudo = input("Saisissez votre pseudo : ")
-        liste_joueurs.append(Joueur(saisirPseudo))
+        liste_joueurs.append(Joueur(saisirPseudo," "))
 
 def charger_fichier_json():
     with open('exemples/exemple_bibliothèque.json', 'r', encoding='utf-8') as exemple:
@@ -29,7 +35,10 @@ def charger_fichier_json():
             print(ligne["titre"])
 
 def vote_cache(liste_joueurs):
-    
+    for joueur in liste_joueurs:
+        messageSaisi = "Joueur " + joueur.getPseudo() + ", saississez votre vote : "
+        saisirVote = str(input(messageSaisi))
+        joueur.setVote(saisirVote)
     
 # retourne un entier : -1 si on revote, x si on a une valeur retenue où x est la valeur retenue
 def validation_vote(liste_vote,regle,tour):
