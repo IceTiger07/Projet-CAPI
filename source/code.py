@@ -61,14 +61,14 @@ def validation_vote(liste_vote,regle,tour):
             for i in range (1, len(liste_vote)):
                 if compareVote != liste_vote[i]:
                     return -1
-            return int(compareVote[0])
+            return int(compareVote)
         case "moyenne":
             if tour == 1:
                 compareVote = liste_vote[0]
                 for i in range (1, len(liste_vote)):
                     if compareVote != liste_vote[i]:
                         return -1
-                return int(compareVote[0])
+                return int(compareVote)
             elif tour == 2:
                 resultat = calcul_moyenne(liste_vote)
                 return resultat
