@@ -55,7 +55,35 @@ def revelation_vote(liste_vote):
     
 # retourne un entier : -1 si on revote, x si on a une valeur retenue où x est la valeur retenue
 def validation_vote(liste_vote,regle,tour):
-    
+    match regle:
+        case "strict":
+            compareVote = liste_vote[0]
+            for i in range (1, len(liste_vote)):
+                if compareVote != liste_vote[i]:
+                    return -1
+            return int(compareVote[0])
+        case "moyenne":
+            if tour == 1:
+                compareVote = liste_vote[0]
+                for i in range (1, len(liste_vote)):
+                    if compareVote != liste_vote[i]:
+                        return -1
+                return int(compareVote[0])
+            elif tour == 2:
+                resultat = calcul_moyenne(liste_vote)
+                return resultat
+                
+def calcul_moyenne(liste_vote):
+    nb_vote = len(liste_vote)
+    resultat = 0
+    for i in range (nb_vote):
+        resultat += int(liste_vote[i])
+    resultat = resultat/nb_vote
+    if str(resultat) in liste_cartes:
+        return resultat
+    else :
+        liste_vote.sort()
+        
 
     
 if __name__ == "__main__":
