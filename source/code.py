@@ -48,6 +48,10 @@ def recup_vote(liste_joueurs,liste_vote):
     for resultat in liste_joueurs:
         liste_vote.append(resultat.getVote())
     return liste_vote
+
+def revelation_vote(liste_vote):
+    for resultat in liste_vote:
+        print(resultat)
     
 # retourne un entier : -1 si on revote, x si on a une valeur retenue où x est la valeur retenue
 def validation_vote(liste_vote,regle,tour):
